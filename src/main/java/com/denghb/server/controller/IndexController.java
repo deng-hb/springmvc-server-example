@@ -12,6 +12,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.denghb.server.domain.JsonResult;
 import com.denghb.server.utils.FileType;
 import com.denghb.server.utils.FileTypeJudge;
 import org.slf4j.Logger;
@@ -32,8 +33,8 @@ public class IndexController {
 
 	@RequestMapping(value = "/")
 	@ResponseBody
-	public String index() {
-		return "index";
+	public JsonResult index() {
+		return new JsonResult("index");
 	}
 
 	@RequestMapping(value = "/post", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -42,6 +43,8 @@ public class IndexController {
 
 		String amount = request.getParameter("amount");
 		log.debug("amount:" + amount);
+		String name = request.getParameter("name");
+		log.debug("name:" + name);
 		return "success";
 	}
 
@@ -89,7 +92,7 @@ public class IndexController {
 		}
 		return "success";
 	}
-	
+
 	@RequestMapping("/download")
 	public void download(HttpServletRequest request,HttpServletResponse response) throws IOException{
 
@@ -99,9 +102,9 @@ public class IndexController {
       String fileName = request.getSession().getServletContext().getRealPath("/") + "assets/xx.js";
 //        String fileName = request.getSession().getServletContext().getRealPath("/") + "../../../../../../Downloads/alipay.png";//QQ_V5.0.1.dmg
 
-        
+
         File file = new File(fileName);
-        
+
         System.out.println(file.getName());
         FileInputStream inputStream = new FileInputStream(file);
         byte[] data = new byte[(int)file.length()];

@@ -8,6 +8,16 @@ public class JsonResult {
     private String msg;
     private Object result;
 
+    public JsonResult(){
+
+    }
+
+    public JsonResult(String msg){
+        this.code = 1;
+        this.msg = msg;
+        this.result = null;
+    }
+
     public int getCode() {
         return code;
     }

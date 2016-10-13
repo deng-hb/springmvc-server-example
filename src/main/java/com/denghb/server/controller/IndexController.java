@@ -71,7 +71,7 @@ public class IndexController {
 					}
 					// 拿到输出流，同时重命名上传的文件
 					FileOutputStream os = new FileOutputStream(
-							"/Users/denghb/temp/uploads/" + new Date().getTime() + filename);
+							"target/" + new Date().getTime() + filename);
 					
 					// 以写字节的方式写文件
 					int b = 0;
@@ -99,7 +99,7 @@ public class IndexController {
 		System.out.println("download start");
 		System.out.println(request.getSession().getServletContext().getRealPath("/"));
 //      String fileName = request.getSession().getServletContext().getRealPath("/") + "assets/c.dmg";
-      String fileName = request.getSession().getServletContext().getRealPath("/") + "assets/xx.js";
+      String fileName = request.getSession().getServletContext().getRealPath("/") + "assets/alipay.png";
 //        String fileName = request.getSession().getServletContext().getRealPath("/") + "../../../../../../Downloads/alipay.png";//QQ_V5.0.1.dmg
 
 
